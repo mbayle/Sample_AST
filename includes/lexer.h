@@ -6,7 +6,7 @@
 /*   By: mabayle <mabayle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/20 04:21:06 by mabayle           #+#    #+#             */
-/*   Updated: 2020/01/09 05:49:43 by mabayle          ###   ########.fr       */
+/*   Updated: 2020/01/18 01:16:16 by mabayle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ typedef struct			s_21sh
 	t_lex				*lex;
 	int					lex_size;
 	t_ast				*ast;
+	int					debug;
 }						t_21sh;
 
 t_21sh					*g_shell;

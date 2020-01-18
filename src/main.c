@@ -6,13 +6,13 @@
 /*   By: mabayle <mabayle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 23:38:57 by mabayle           #+#    #+#             */
-/*   Updated: 2019/12/17 00:21:51 by mabayle          ###   ########.fr       */
+/*   Updated: 2020/01/18 04:10:10 by mabayle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "projectinclude.h"
 
-t_21sh	*init_shell(void)
+t_21sh	*init_shell(int debug)
 {
 	t_21sh		*shell;
 
@@ -20,22 +20,22 @@ t_21sh	*init_shell(void)
 	shell->lex = NULL;
 	shell->lex_size = 0;
 	shell->ast = NULL;
+	shell->debug = debug;
 	return (shell);
 }
 
-int     main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
-    if (argc == 2)
-    {
-        g_shell = init_shell();
+	if (argc == 2 || argc == 3)
+	{
+		if (argc == 3 && ft_strcmp(argv[2], "DEBUG") == 0)
+			g_shell = init_shell(1);
+		else
+			g_shell = init_shell(0);
 		g_shell->line = argv[1];
-        ft_putstr(PURPLE);
-		ft_putendl("BTreeTest - Input :");
-		ft_putstr(NC);
-        ft_putendl(argv[1]);
 		ft_lexer(&g_shell->lex, g_shell->line);
-    } 
-    else
-        printf("Usage : ./BTreeTest + \"argument\"\n");
-    return (0);
+	}
+	else
+		ft_putendl("Usage : BTreeTest [test argument] [DEBUG]\n");
+	return (0);
 }

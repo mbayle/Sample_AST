@@ -6,7 +6,7 @@
 /*   By: mabayle <mabayle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/17 02:44:11 by mabayle           #+#    #+#             */
-/*   Updated: 2020/01/15 02:05:28 by mabayle          ###   ########.fr       */
+/*   Updated: 2020/01/18 05:10:44 by mabayle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,10 @@ void	ft_padding(int padd)
 
 void	ft_print_node(t_ast *ast, char *side, int lvl)
 {
-	(void) ast;
+	(void)ast;
 	t_lex *tmp;
 
+	tmp = ast->lex;
 	ft_padding(lvl);
 	ft_putstr("-- ");
 	ft_putstr(side);
@@ -48,8 +49,6 @@ void	ft_print_node(t_ast *ast, char *side, int lvl)
 		ft_putendl("------------");
 		return ;
 	}
-	else
-		tmp = ast->lex;
 	ft_putstr(RED);
 	if (!ast->left && !ast->right)
 	{

@@ -6,7 +6,7 @@
 /*   By: mabayle <mabayle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 23:40:49 by mabayle           #+#    #+#             */
-/*   Updated: 2020/01/15 03:06:21 by mabayle          ###   ########.fr       */
+/*   Updated: 2020/01/18 01:21:45 by mabayle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 ** MAIN.c
 */
 int     main(int argc, char **argv);
-t_21sh	*init_shell(void);
+t_21sh	*init_shell(int debug);
 
 /*
 ** AST.C
