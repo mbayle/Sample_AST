@@ -6,13 +6,13 @@
 /*   By: mabayle <mabayle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/30 05:22:48 by mabayle           #+#    #+#             */
-/*   Updated: 2020/01/18 03:58:08 by mabayle          ###   ########.fr       */
+/*   Updated: 2020/01/19 23:07:03 by mabayle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "projectinclude.h"
 
-void	ft_print_header(void)
+void	ft_print_header(t_lex **lex)
 {
 	ft_putstr(PURPLE);
 	ft_putendl("Lexer debug :");
@@ -23,6 +23,7 @@ void	ft_print_header(void)
 	ft_putendl("    	VALUE		  |");
 	ft_putstr(" -----------------------------------------------------------");
 	ft_putendl("----------------------");
+	ft_print_debug(lex);
 }
 
 void	ft_print_control_op(enum e_operator op)

@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   projectinclude.h                                   :+:      :+:    :+:   */
+/*   ft_puendl_col.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabayle <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/20 04:05:42 by mabayle           #+#    #+#             */
-/*   Updated: 2020/01/20 04:11:33 by mabayle          ###   ########.fr       */
+/*   Created: 2020/01/20 02:28:20 by mabayle           #+#    #+#             */
+/*   Updated: 2020/01/20 02:28:51 by mabayle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PROJECTINCLUDE_H
-# define PROJECTINCLUDE_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include "libft.h"
-# include "mybtree.h"
-# include "lexer.h"
-
-#endif
+void	ft_putendl_col(char *str, char *color, char *colreset)
+{
+	ft_putstr(color);
+	ft_putstr(str);
+	ft_putendl(colreset);
+}

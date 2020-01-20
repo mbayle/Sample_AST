@@ -6,39 +6,40 @@
 /*   By: mabayle <mabayle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 23:40:49 by mabayle           #+#    #+#             */
-/*   Updated: 2020/01/18 01:21:45 by mabayle          ###   ########.fr       */
+/*   Updated: 2020/01/20 04:12:48 by mabayle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MYBTREE_H
 # define MYBTREE_H
 
-#include "lexer.h"
+# include "lexer.h"
 
 /*
 ** MAIN.c
 */
-int     main(int argc, char **argv);
+int		main(int argc, char **argv);
 t_21sh	*init_shell(int debug);
 
 /*
 ** AST.C
 */
-int     build_ast(t_lex *lex, t_ast **ast);
-void    init_priority(t_lex *lex);
-t_ast   *init_node(t_lex *lex, char *root);
-int     max_depth(t_ast *ast, int left_depth, int right_depth);
-t_ast   *sub_split(t_ast *ast, int find, int priority);
-t_ast   *no_root(t_lex *lex, t_ast *ast);
-int     find_priority(t_ast *ast, int depth, int side, int priority);
+int		build_ast(t_lex *lex, t_ast **ast);
+void	init_priority(t_lex *lex);
+t_ast	*init_node(t_lex *lex, char *root);
+int		max_depth(t_ast *ast, int left_depth, int right_depth);
+t_ast	*browse_ast(t_ast *ast, int find, int priority);
+t_ast	*sub_split(t_ast *ast, int find, int priority);
+t_ast	*no_root(t_lex *lex, t_ast *ast);
+int		find_priority(t_ast *ast, int priority);
 
 /*
 ** PROCESS_AST.C
 */
-t_ast   *create_ast(t_ast *ast, int priority);
-void    split_lex(t_ast *ast, int priority);
-t_lex   *split_lex3(t_lex *lex, int start);
-t_lex   *split_lex2(t_lex *lex, int stop);
+t_ast	*create_ast(t_ast *ast, int priority);
+void	split_lex(t_ast *ast, int priority);
+t_lex	*split_lex3(t_lex *lex, int start);
+t_lex	*split_lex2(t_lex *lex, int stop);
 
 /*
 ** PRINT_AST.C

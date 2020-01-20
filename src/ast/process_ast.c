@@ -6,7 +6,7 @@
 /*   By: mabayle <mabayle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 01:37:00 by mabayle           #+#    #+#             */
-/*   Updated: 2020/01/18 04:20:35 by mabayle          ###   ########.fr       */
+/*   Updated: 2020/01/20 00:22:47 by mabayle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,16 @@ t_lex	*split_lex3(t_lex *lex, int start)
 	return (new);
 }
 
+t_ast	*create_ast2(t_ast *ast, t_lex *current, t_lex *right, t_lex *left)
+{
+	right = split_lex3(g_shell->lex, current->next->pos);
+	ast->right = init_node(right, "NULL");
+	left = split_lex2(g_shell->lex, left->pos);
+	ast->left = init_node(left, "NULL");
+	g_shell->lex = right;
+	return (ast);
+}
+
 t_ast	*create_ast(t_ast *ast, int priority)
 {
 	t_lex *left;
@@ -59,18 +69,10 @@ t_ast	*create_ast(t_ast *ast, int priority)
 		}
 		current = current->next;
 	}
-	if (current->next)
-		ft_strcmp(ast->root, g_shell->lex->value) == 0
+	(current->next) && ft_strcmp(ast->root, g_shell->lex->value) == 0
 			? ast->root = current->next->value : 0;
-	if (right)
-	{
-		right = split_lex3(g_shell->lex, current->next->pos);
-		ast->right = init_node(right, "NULL");
-		left = split_lex2(g_shell->lex, left->pos);
-		ast->left = init_node(left, "NULL");
-		g_shell->lex = right;
-		if (ast->lex->next)
-			ast->right = create_ast(ast->right, priority);
-	}
+	right ? ast = create_ast2(ast, current, right, left) : 0;
+	if (ast->lex->next)
+		ast->right = create_ast(ast->right, priority);
 	return (ast);
 }

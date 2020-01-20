@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   projectinclude.h                                   :+:      :+:    :+:   */
+/*   ft_padding.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabayle <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/20 04:05:42 by mabayle           #+#    #+#             */
-/*   Updated: 2020/01/20 04:11:33 by mabayle          ###   ########.fr       */
+/*   Created: 2020/01/20 02:26:12 by mabayle           #+#    #+#             */
+/*   Updated: 2020/01/20 02:27:22 by mabayle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PROJECTINCLUDE_H
-# define PROJECTINCLUDE_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include "libft.h"
-# include "mybtree.h"
-# include "lexer.h"
+void	ft_padding(int padd)
+{
+	int	i;
 
-#endif
+	i = 0;
+	while (++i < padd)
+		write(1, "\t", 1);
+}

@@ -30,7 +30,8 @@ SRC		:=	main.c \
 			lexer/print_debug.c \
 			ast/ast.c \
 			ast/process_ast.c \
-			ast/print_ast.c
+			ast/print_ast.c \
+			ast/ast_utils.c
 
 OBJ		:=	$(addprefix $(OBJ_PATH), $(SRC:.c=.o))
 SRC		:=	$(addprefix $(SRC_PATH), $(SRC))
